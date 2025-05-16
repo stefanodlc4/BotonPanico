@@ -1,5 +1,6 @@
 package com.sise.botonpanico;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.sise.botonpanico.activities.PerfilCiudadanoActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickPerfilCiudadano(View view){
-        Toast.makeText(this,"Abriendo Perfil ciudadano", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, PerfilCiudadanoActivity.class);
+        startActivity(intent);
     }
 
     @Override
