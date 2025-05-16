@@ -2,6 +2,8 @@ package com.sise.botonpanico;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     private final String TAG = MainActivity.class.getSimpleName();
 
+    private Button btnPerfilCiudadano;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        btnPerfilCiudadano = findViewById(R.id.activitymain_btn_saludar);
+        btnPerfilCiudadano.setOnClickListener(view -> {
+            Toast.makeText(this,"Abriendo Perfil ciudadano", Toast.LENGTH_SHORT).show();
         });
     }
 
