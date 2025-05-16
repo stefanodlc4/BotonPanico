@@ -18,4 +18,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/activityperfilciudadano_img_foto"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activityperfilciudadano_tv_titulo"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Spinner
+        android:id="@+id/activityperfilciudadano_spn_tipodocumento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activityperfilciudadano_img_foto" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
