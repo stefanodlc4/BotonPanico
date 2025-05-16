@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="texto_titulo">24sp</dimen>
+    <dimen name="texto_normal">12sp</dimen>
+
+    <dimen name="margin_pequeno">4dp</dimen>
+    <dimen name="margin_medio">8dp</dimen>
+    <dimen name="margin_grande">16dp</dimen>
+
+    <dimen name="boton_altura">40dp</dimen>
+    <dimen name="boton_ancho">200dp</dimen>
+</resources>
