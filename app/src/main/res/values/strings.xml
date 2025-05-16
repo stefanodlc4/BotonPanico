@@ -1,13 +1,7 @@
 <resources>
     <string name="app_name">BotonPanico</string>
 
-    <string name="saludo_sise">Hola Mundo SISE 2!</string>
+    <string name="activityperfilciudadano_tv_titulo">Completa tu Perfil</string>
 
-    <string name="common_saludo_principal">Hola Mundo SISE 2!</string>
-
-    <string name="activitymain_saludo_principal">Hola Mundo SISE 2!</string>
-    <string name="activitymain_saludo_principal1">Hola Mundo SISE 2!</string>
-    <string name="activitymain_saludo_principal2">Hola Mundo SISE 2!</string>
-    <string name="activitymain_saludo_principal3">Hola Mundo SISE 2!</string>
 
 </resources>

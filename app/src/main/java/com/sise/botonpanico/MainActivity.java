@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickPerfilCiudadano(View view){
         Intent intent = new Intent(this, PerfilCiudadanoActivity.class);
         startActivity(intent);
+        //finish();
     }
 
     @Override
