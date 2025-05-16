@@ -2,6 +2,7 @@
     <string name="app_name">BotonPanico</string>
 
     <string name="activityperfilciudadano_tv_titulo">Completa tu Perfil</string>
+    <string name="activityperfilciudadano_et_numerodocumento_hint">Número de documento</string>
 
 
 </resources>
