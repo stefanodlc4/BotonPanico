@@ -14,4 +14,8 @@
         <item name="android:textSize">@dimen/texto_normal</item>
     </style>
 
+    <style name="BotonSOSPrincipal">
+        <item name="android:backgroundTint">@drawable/btn_principal_sos</item>
+    </style>
+
 </resources>
