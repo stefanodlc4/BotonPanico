@@ -12,5 +12,7 @@
     <string name="actperfciud_btn_guardar">Guardar</string>
 
     <string name="actini_btn_sos">SOS</string>
+    <string name="actini_btn_aux1">Incendio</string>
+    <string name="actini_btn_aux2">Asistencia</string>
 
 </resources>

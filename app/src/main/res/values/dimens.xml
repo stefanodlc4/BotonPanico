@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="texto_supertitulo">40sp</dimen>
     <dimen name="texto_titulo">24sp</dimen>
     <dimen name="texto_normal">14sp</dimen>
 
