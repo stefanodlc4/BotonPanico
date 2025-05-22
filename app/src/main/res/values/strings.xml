@@ -11,4 +11,6 @@
     <string name="actperfciud_et_direccion_hint">Dirección</string>
     <string name="actperfciud_btn_guardar">Guardar</string>
 
+    <string name="actini_btn_sos">SOS</string>
+
 </resources>
