@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/activitymain_btn_saludar"
+        android:id="@+id/activitymain_btn_perfilciuda"
         android:layout_width="200sp"
         android:layout_height="wrap_content"
         android:text="Perfil ciudadano"
@@ -18,6 +18,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/activitymain_btn_inicio"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="Inicio"
+        android:layout_marginTop="10dp"
+        android:onClick="onClickInicio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activitymain_btn_perfilciuda"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
