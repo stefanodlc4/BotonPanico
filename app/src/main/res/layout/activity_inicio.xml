@@ -32,10 +32,11 @@
         android:layout_marginTop="@dimen/margin_grande"
         android:text="@string/actini_btn_aux1"
         android:textSize="@dimen/texto_titulo"
+        app:backgroundTint="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/actini_btn_aux2"
         app:layout_constraintTop_toBottomOf="@+id/actini_btn_sos"
-
+        android:background="@drawable/btn_secundario_sos"
         />
 
     <Button
@@ -47,9 +48,12 @@
         android:layout_marginEnd="@dimen/margin_grande"
         android:text="@string/actini_btn_aux2"
         android:textSize="@dimen/texto_titulo"
+        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/actini_btn_aux1"
-        app:layout_constraintTop_toBottomOf="@+id/actini_btn_sos"/>
+        app:layout_constraintTop_toBottomOf="@+id/actini_btn_sos"
+        android:background="@drawable/btn_secundario_sos"
+        />
 
     <Button
         android:id="@+id/actini_btn_otro"
