@@ -4,21 +4,39 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sise.botonpanico.entities.Incidencia;
 import com.sise.botonpanico.shared.BaseResponse;
+import com.sise.botonpanico.shared.Callback;
 import com.sise.botonpanico.shared.Constants;
 import com.sise.botonpanico.shared.ExceptionMessage;
 import com.sise.botonpanico.shared.HttpUtil;
 
 public class IncidenciaRepository {
 
-    public BaseResponse<Incidencia> insertarIncidencia(Incidencia incidencia) throws Exception {
-        // Hace peticion enviando el objeto incidencia como String, y devuelve la respuesta del API en string
-        String response = HttpUtil.POST(Constants.BASE_URL_API, "/incidencias", new Gson().toJson(incidencia));
-        if(response == null){
-            throw new Exception(ExceptionMessage.RESPONSE_IS_NULL);
+    public void insertarIncidencia(Incidencia incidencia, Callback<Incidencia> callback) {
+        try {
+            // Hace peticion enviando el objeto incidencia como String, y devuelve la respuesta del API en string
+            String response = HttpUtil.POST(Constants.BASE_URL_API, "/incidencias", new Gson().toJson(incidencia));
+            if (response == null) {
+                callback.onFailure();
+                return;
+            }
+            // Convertir el response String en el objeto BaseResponse<Incidencia>
+            BaseResponse<Incidencia> baseResponse = new Gson().fromJson(response, TypeToken.getParameterized(BaseResponse.class, Incidencia.class).getType());
+            if(baseResponse == null){
+                callback.onFailure();
+                return;
+            }
+
+            if(!baseResponse.isSuccess()){
+                callback.onFailure();
+                return;
+            }
+            callback.onSuccess(baseResponse.getData());
+        } catch (Exception e){
+            System.out.println(e);
+            e.printStackTrace();
+            callback.onFailure();
         }
-        // Convertir el response String en el objeto BaseResponse<Incidencia>
-        BaseResponse<Incidencia> baseResponse = new Gson().fromJson(response, TypeToken.getParameterized(BaseResponse.class, Incidencia.class).getType());
-        return baseResponse;
+
     }
 
 }
