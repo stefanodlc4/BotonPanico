@@ -10,7 +10,7 @@ public class HttpUtil {
 
     public static String GET(String baseUrl, String path) {
         try {
-            URL url = new URL(baseUrl+"/"+path);
+            URL url = new URL(baseUrl+path);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
             con.setRequestMethod("GET");
@@ -35,7 +35,7 @@ public class HttpUtil {
 
     public static String POST(String baseUrl, String path, String body) {
         try {
-            URL url = new URL(baseUrl+"/"+path);
+            URL url = new URL(baseUrl+path);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
             con.setRequestMethod("POST");
