@@ -8,6 +8,9 @@ import java.net.URL;
 
 public class HttpUtil {
 
+    private HttpUtil() {
+    }
+
     public static String GET(String baseUrl, String path) {
         try {
             URL url = new URL(baseUrl+path);

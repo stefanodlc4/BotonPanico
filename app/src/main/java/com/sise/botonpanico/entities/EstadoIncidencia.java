@@ -39,4 +39,8 @@ public class EstadoIncidencia {
     public void setFechaCreacionAuditoria(Date fechaCreacionAuditoria) {
         this.fechaCreacionAuditoria = fechaCreacionAuditoria;
     }
+
+    public static EstadoIncidencia builder() {
+        return new EstadoIncidencia();
+    }
 }
