@@ -1,5 +1,7 @@
 package com.sise.botonpanico.shared;
 
+import android.os.StrictMode;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -13,6 +15,8 @@ public class HttpUtil {
 
     public static String GET(String baseUrl, String path) {
         try {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
             URL url = new URL(baseUrl+path);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
@@ -38,6 +42,8 @@ public class HttpUtil {
 
     public static String POST(String baseUrl, String path, String body) {
         try {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
             URL url = new URL(baseUrl+path);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
