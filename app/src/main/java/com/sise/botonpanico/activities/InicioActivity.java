@@ -1,6 +1,9 @@
 package com.sise.botonpanico.activities;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -50,20 +53,16 @@ public class InicioActivity extends AppCompatActivity {
     }
 
     public void onClickSOSPrincipal(View view){
-        runOnUiThread(() -> {
-            Incidencia incidencia = new Incidencia();
-            incidencia.setDescripcion("SOS Principal");
+        Incidencia incidencia = new Incidencia();
+        incidencia.setDescripcion("SOS Principal");
 
-            EstadoIncidencia estadoIncidencia = new EstadoIncidencia();
-            estadoIncidencia.setIdEstadoIncidencia(1);
-            incidencia.setEstadoIncidencia(estadoIncidencia);
+        EstadoIncidencia estadoIncidencia = new EstadoIncidencia();
+        estadoIncidencia.setIdEstadoIncidencia(1);
+        incidencia.setEstadoIncidencia(estadoIncidencia);
 
-            TipoIncidencia tipoIncidencia = new TipoIncidencia();
-            tipoIncidencia.setIdTipoIncidencia(1);
-            incidencia.setTipoIncidencia(tipoIncidencia);
-
-            incidenciaViewModel.insertarIncidencia(incidencia);
-        });
-
+        TipoIncidencia tipoIncidencia = new TipoIncidencia();
+        tipoIncidencia.setIdTipoIncidencia(1);
+        incidencia.setTipoIncidencia(tipoIncidencia);
+        incidenciaViewModel.insertarIncidencia(incidencia);
     }
 }
