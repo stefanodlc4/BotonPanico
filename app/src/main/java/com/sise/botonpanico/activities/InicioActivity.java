@@ -1,5 +1,6 @@
 package com.sise.botonpanico.activities;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -64,5 +65,10 @@ public class InicioActivity extends AppCompatActivity {
         tipoIncidencia.setIdTipoIncidencia(1);
         incidencia.setTipoIncidencia(tipoIncidencia);
         incidenciaViewModel.insertarIncidencia(incidencia);
+    }
+
+    public void onClickOtraIncidencia(View view){
+        Intent intent = new Intent(this, OtroIncidenteActivity.class);
+        startActivity(intent);
     }
 }

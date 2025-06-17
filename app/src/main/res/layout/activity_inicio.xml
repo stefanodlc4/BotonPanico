@@ -63,6 +63,7 @@
         android:layout_marginBottom="@dimen/margin_grande"
         android:text="@string/actini_btn_otro"
         android:textSize="@dimen/texto_normal"
+        android:onClick="onClickOtraIncidencia"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
