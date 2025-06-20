@@ -31,6 +31,8 @@ public class OtroIncidenteActivity extends AppCompatActivity {
             return insets;
         });
 
+        tipoIncidenciaSpinner = findViewById(R.id.activityotroincidente_sp_tipoincidente);
+
         tipoIncidenciaViewModel = new ViewModelProvider(this).get(TipoIncidenciaViewModel.class);
         observeTipoIncidenciaViewModel();
     }

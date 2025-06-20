@@ -14,8 +14,16 @@ import java.util.List;
 
 public class TipoIncidenciaSpinnerAdapter extends ArrayAdapter<TipoIncidencia> {
 
+    private List<TipoIncidencia> tipoIncidencias;
+
     public TipoIncidenciaSpinnerAdapter(@NonNull Context context, List<TipoIncidencia> tipoIncidencias) {
         super(context, android.R.layout.simple_spinner_item ,tipoIncidencias);
+        this.tipoIncidencias = tipoIncidencias;
+    }
+
+    @Override
+    public int getCount() {
+        return this.tipoIncidencias != null ? this.tipoIncidencias.size() : 0;
     }
 
     @NonNull
@@ -35,6 +43,15 @@ public class TipoIncidenciaSpinnerAdapter extends ArrayAdapter<TipoIncidencia> {
 
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        return super.getDropDownView(position, convertView, parent);
+        //spinner
+        View view = super.getView(position, convertView, parent);
+
+        //textview dentro de spinner
+        TextView textView = view.findViewById(android.R.id.text1);
+        TipoIncidencia tipoIncidencia = getItem(position);
+        if(tipoIncidencia != null){
+            textView.setText((position+1)+". "+tipoIncidencia.getDescripcion());
+        }
+        return view;
     }
 }

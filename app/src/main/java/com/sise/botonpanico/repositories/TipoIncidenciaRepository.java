@@ -9,6 +9,7 @@ import com.sise.botonpanico.shared.Callback;
 import com.sise.botonpanico.shared.Constants;
 import com.sise.botonpanico.shared.HttpUtil;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 public class TipoIncidenciaRepository {
@@ -20,10 +21,11 @@ public class TipoIncidenciaRepository {
                 return;
             }
 
-            BaseResponse<List<TipoIncidencia>> baseResponse = new Gson().fromJson(
-                    response,
-                    TypeToken.getParameterized(BaseResponse.class, List.class, TipoIncidencia.class).getType()
-            );
+            Type type = TypeToken.getParameterized(BaseResponse.class,
+                    TypeToken.getParameterized(List.class, TipoIncidencia.class).getType()).getType();
+
+            BaseResponse<List<TipoIncidencia>> baseResponse = new Gson().fromJson(response, type);
+
             if(baseResponse == null){
                 callback.onFailure();
                 return;
