@@ -2,9 +2,10 @@ package com.sise.botonpanico.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,6 +25,9 @@ import com.sise.botonpanico.entities.TipoIncidencia;
 import com.sise.botonpanico.viewmodel.IncidenciaViewModel;
 import com.sise.botonpanico.viewmodel.TipoIncidenciaViewModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class OtroIncidenteActivity extends AppCompatActivity {
 
     private final String TAG = OtroIncidenteActivity.class.getSimpleName();
@@ -31,6 +35,7 @@ public class OtroIncidenteActivity extends AppCompatActivity {
     private IncidenciaViewModel incidenciaViewModel;
     private Spinner tipoIncidenciaSpinner;
     private EditText etDescripcion;
+    private LinearLayout linearLayoutBotones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,7 @@ public class OtroIncidenteActivity extends AppCompatActivity {
 
         tipoIncidenciaSpinner = findViewById(R.id.activityotroincidente_sp_tipoincidente);
         etDescripcion = findViewById(R.id.activityotroincidente_et_descripcion);
+        linearLayoutBotones = findViewById(R.id.activityotroincidente_ly_linear);
 
         incidenciaViewModel = new ViewModelProvider(this).get(IncidenciaViewModel.class);
         tipoIncidenciaViewModel = new ViewModelProvider(this).get(TipoIncidenciaViewModel.class);
@@ -60,9 +66,28 @@ public class OtroIncidenteActivity extends AppCompatActivity {
     }
 
     private void observeTipoIncidenciaViewModel(){
-        tipoIncidenciaViewModel.getListarTipoIncidenciasLiveData().observe(this,tipoIncidencias -> {
-            TipoIncidenciaSpinnerAdapter adapter = new TipoIncidenciaSpinnerAdapter(this,tipoIncidencias);
+        tipoIncidenciaViewModel.getListarTipoIncidenciasLiveData().observe(this, tipoIncidencias -> {
+
+
+            List<TipoIncidencia> tipoIncidenciaNoBoton = new ArrayList<>();
+            for ( TipoIncidencia _tipoIncidencia : tipoIncidencias) {
+                if(_tipoIncidencia.getFlagBoton().equals("0")){
+                    tipoIncidenciaNoBoton.add(_tipoIncidencia);
+                }
+            }
+            TipoIncidenciaSpinnerAdapter adapter = new TipoIncidenciaSpinnerAdapter(this,tipoIncidenciaNoBoton);
             tipoIncidenciaSpinner.setAdapter(adapter);
+
+            for (TipoIncidencia tipoIncidencia: tipoIncidencias) {
+                if(tipoIncidencia.getFlagBoton().equals("1")){
+                    Button btnTipoIncidencia = new Button(OtroIncidenteActivity.this);
+                    btnTipoIncidencia.setText(tipoIncidencia.getDescripcion());
+                    btnTipoIncidencia.setBackgroundResource(R.drawable.btn_otro_incidente_background);
+                    //btnTipoIncidencia.setBackgroundTintMode(null);
+                    linearLayoutBotones.addView(btnTipoIncidencia);
+                }
+
+            }
         });
     }
 

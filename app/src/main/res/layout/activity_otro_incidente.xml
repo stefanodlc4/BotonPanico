@@ -7,17 +7,42 @@
     android:layout_height="match_parent"
     tools:context=".activities.OtroIncidenteActivity">
 
+    <LinearLayout
+        android:id="@+id/activityotroincidente_ly_linear"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/altura_grande"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin_enorme"
+        android:layout_marginStart="@dimen/margin_grande"
+        android:layout_marginEnd="@dimen/margin_grande"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <!--Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/actotrinc_btn_enviar"
+            android:textColor="@color/red_variation_2"
+            app:backgroundTint="@null"
+            android:background="@drawable/btn_otro_incidente_background"
+            /-->
+
+    </LinearLayout>
+
+
     <Spinner
         android:id="@+id/activityotroincidente_sp_tipoincidente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_enorme"
+        android:layout_marginTop="@dimen/margin_grande"
         android:layout_marginStart="@dimen/margin_grande"
         android:layout_marginEnd="@dimen/margin_grande"
         style="@style/Spinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activityotroincidente_ly_linear"
         />
 
     <EditText
@@ -49,4 +74,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activityotroincidente_et_descripcion"
         />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

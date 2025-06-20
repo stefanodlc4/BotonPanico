@@ -12,5 +12,9 @@
     <dimen name="boton_altura">40dp</dimen>
     <dimen name="boton_ancho">200dp</dimen>
 
+    <dimen name="altura_grande">300dp</dimen>
+    <dimen name="altura_mediana">40dp</dimen>
+    <dimen name="altura_pequena">20dp</dimen>
+
 
 </resources>
