@@ -50,7 +50,7 @@ public class TipoIncidenciaSpinnerAdapter extends ArrayAdapter<TipoIncidencia> {
         TextView textView = view.findViewById(android.R.id.text1);
         TipoIncidencia tipoIncidencia = getItem(position);
         if(tipoIncidencia != null){
-            textView.setText((position+1)+". "+tipoIncidencia.getDescripcion());
+            textView.setText((position+1)+". "+tipoIncidencia.getDescripcion()+" ("+tipoIncidencia.getIdTipoIncidencia()+")");
         }
         return view;
     }

@@ -47,7 +47,7 @@ public class InicioActivity extends AppCompatActivity {
         incidenciaViewModel.getInsertarIncidenciaStatus().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                String text = aBoolean.booleanValue() ? "¡Se ha insertado correctamente!" : "¡Ocurrió un error al insertar!";
+                String text = aBoolean.booleanValue() ? "¡Se ha enviado correctamente!" : "¡Ocurrió un error al enviar!";
                 Toast.makeText(getApplicationContext(),text, Toast.LENGTH_LONG).show();
             }
         });
