@@ -15,6 +15,7 @@ public class HttpUtil {
 
     public static String GET(String baseUrl, String path) {
         try {
+            System.out.println("GET ==> "+baseUrl+path);
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             URL url = new URL(baseUrl+path);
@@ -22,7 +23,7 @@ public class HttpUtil {
 
             con.setRequestMethod("GET");
             con.setRequestProperty("Content-Type","application/json");
-            con.setDoOutput(true);
+            con.setDoOutput(false);
 
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
@@ -32,6 +33,7 @@ public class HttpUtil {
             }
             in.close();
 
+            System.out.println("<== " +response);
             return response.toString();
         }catch (Exception e){
             System.out.println(e);
@@ -42,6 +44,8 @@ public class HttpUtil {
 
     public static String POST(String baseUrl, String path, String body) {
         try {
+            System.out.println("POST ==> "+baseUrl+path);
+            System.out.println(body);
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             URL url = new URL(baseUrl+path);
@@ -63,7 +67,7 @@ public class HttpUtil {
                 response.append(inputLine);
             }
             in.close();
-
+            System.out.println("<== " +response);
             return response.toString();
         }catch (Exception e){
             System.out.println(e);

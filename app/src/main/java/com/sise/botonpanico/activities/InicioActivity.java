@@ -1,6 +1,10 @@
 package com.sise.botonpanico.activities;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -43,27 +47,28 @@ public class InicioActivity extends AppCompatActivity {
         incidenciaViewModel.getInsertarIncidenciaStatus().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                String text = aBoolean.booleanValue() ? "¡Se ha insertado correctamente!" : "¡Ocurrió un error al insertar!";
+                String text = aBoolean.booleanValue() ? "¡Se ha enviado correctamente!" : "¡Ocurrió un error al enviar!";
                 Toast.makeText(getApplicationContext(),text, Toast.LENGTH_LONG).show();
             }
         });
     }
 
     public void onClickSOSPrincipal(View view){
-        runOnUiThread(() -> {
-            Incidencia incidencia = new Incidencia();
-            incidencia.setDescripcion("SOS Principal");
+        Incidencia incidencia = new Incidencia();
+        incidencia.setDescripcion("SOS Principal");
 
-            EstadoIncidencia estadoIncidencia = new EstadoIncidencia();
-            estadoIncidencia.setIdEstadoIncidencia(1);
-            incidencia.setEstadoIncidencia(estadoIncidencia);
+        EstadoIncidencia estadoIncidencia = new EstadoIncidencia();
+        estadoIncidencia.setIdEstadoIncidencia(1);
+        incidencia.setEstadoIncidencia(estadoIncidencia);
 
-            TipoIncidencia tipoIncidencia = new TipoIncidencia();
-            tipoIncidencia.setIdTipoIncidencia(1);
-            incidencia.setTipoIncidencia(tipoIncidencia);
+        TipoIncidencia tipoIncidencia = new TipoIncidencia();
+        tipoIncidencia.setIdTipoIncidencia(1);
+        incidencia.setTipoIncidencia(tipoIncidencia);
+        incidenciaViewModel.insertarIncidencia(incidencia);
+    }
 
-            incidenciaViewModel.insertarIncidencia(incidencia);
-        });
-
+    public void onClickOtraIncidencia(View view){
+        Intent intent = new Intent(this, OtroIncidenteActivity.class);
+        startActivity(intent);
     }
 }

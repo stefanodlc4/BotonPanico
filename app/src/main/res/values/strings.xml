@@ -16,4 +16,8 @@
     <string name="actini_btn_aux2">Asistencia</string>
     <string name="actini_btn_otro">Otra Incidencia</string>
 
+
+    <string name="actotrinc_btn_enviar">Enviar</string>
+    <string name="actotrinc_et_descripcion_hint">Descripción</string>
+
 </resources>
